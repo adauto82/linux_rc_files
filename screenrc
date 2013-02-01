@@ -2,8 +2,11 @@ startup_message off
 
 hardstatus on
 hardstatus message
+vbell off
 
 
 caption always "%-w%{wk}%n %t%{dd}%+w %=%H | %Y-%m-%d %c"
+
+escape ^Tt
 
 scrollback 10000
