@@ -105,3 +105,4 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 #set -o vi
 EDITOR=vi
+slang(){ elinks -no-references -no-numbering -dump "www.urbandictionary.com/define.php?term=$1" |sed -n '/1\. /,/2\./p'; }
