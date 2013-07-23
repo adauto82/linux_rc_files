@@ -76,6 +76,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
     alias gst='git status'
+    alias sr='screen'
 fi
 
 # some more ls aliases
@@ -83,6 +84,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias root='sudo -H -i' # a shortcut for becoming root
+alias coint='cd /home/jd/workspace/cointreau'
+alias cam='cd /home/jd/workspace/campari'
+alias ws='cd /home/jd/workspace'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -106,3 +110,22 @@ fi
 #set -o vi
 EDITOR=vi
 slang(){ elinks -no-references -no-numbering -dump "www.urbandictionary.com/define.php?term=$1" |sed -n '/1\. /,/2\./p'; }
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
+}
+function proml {
+  local BLUE="\[\033[0;34m\]"
+  # OPTIONAL - if you want to use any of these other colors:
+  local RED="\[\033[0;31m\]"
+  local LIGHT_RED="\[\033[1;31m\]"
+  local GREEN="\[\033[0;32m\]"
+  local LIGHT_GREEN="\[\033[1;32m\]"
+  local WHITE="\[\033[1;37m\]"
+  local LIGHT_GRAY="\[\033[0;37m\]"
+  # END OPTIONAL
+  local DEFAULT="\[\033[0m\]"
+
+  PS1="\u@\h:\W$WHITE\$(parse_git_branch)$DEFAULT\$"
+}
+proml
