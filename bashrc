@@ -13,8 +13,8 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=2000
+HISTFILESIZE=4000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -84,9 +84,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias root='sudo -H -i' # a shortcut for becoming root
-alias coint='cd /home/jd/workspace/cointreau'
-alias cam='cd /home/jd/workspace/campari'
-alias ws='cd /home/jd/workspace'
+alias vi=vim
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -129,3 +127,5 @@ function proml {
   PS1="\u@\h:\W$WHITE\$(parse_git_branch)$DEFAULT\$"
 }
 proml
+fortune
+
